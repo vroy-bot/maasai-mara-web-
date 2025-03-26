@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Maasai Mara University</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>Services - Maasai Mara University</header>
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="about us.html">About Us</a>
+        <a href="departments.html">Departments</a>
+        <a href="services.html">Services</a>
+        <a href="contact us.html">Contact Us</a>
+        <a href="#" id="authLink">Login</a>
+    </nav>
+
+    <div class="container">
+        <div class="section">
+            <h2>Welcome to Maasai Mara University</h2>
+            <p>Maasai Mara University is a public institution and the only university in Narok County, situated 150 km southwest of Nairobi, near the great Maasai Mara Game Reserve. We focus on innovative teaching and research, with global collaborations in various disciplines.</p>
+        </div>
+        <div class="section">
+            <h3>Our Academic Disciplines</h3>
+            <p>We specialize in the following fields:</p>
+            <ul>
+                <li>Business and Economics</li>
+                <li>ICT and Computing</li>
+                <li>Education and Psychology</li>
+                <li>Tourism and Hospitality</li>
+                <li>Environmental Sciences</li>
+                <li>Health Sciences</li>
+            </ul>
+            <p>Our programs are designed to equip students with practical and theoretical knowledge to excel in their careers.</p>
+        </div>
+        <div class="section">
+            <h3>Our Vision</h3>
+            <p>To provide quality university education through innovative teaching, research, and consultancy services for sustainable development.</p>
+        </div>
+        <div class="cta">
+            <a href="contact us.html">Contact Us</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>Contact Information</h3>
+        <p>Maasai Mara University<br>
+        P.O. Box 861-20500, Narok, Kenya<br>
+        Tel: (254) 20 5131400<br>
+        Email: maasaimarauniversity@nrk.ac.ke</p>
+    </div>
+
+    <script>
+        // Check if the user is logged in
+        const user = JSON.parse(localStorage.getItem('user'));
+        const authLink = document.getElementById('authLink');
+
+        if (user) {
+            authLink.textContent = 'Logout';
+            authLink.href = '#'; // Prevent default link behavior
+            authLink.onclick = () => {
+                localStorage.removeItem('user'); // Logout
+                window.location.href = 'index.html'; // Redirect to login page
+            };
+        } else {
+            authLink.textContent = 'Login';
+            authLink.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

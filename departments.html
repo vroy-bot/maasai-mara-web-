@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments - Maasai Mara University</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>Departments - Maasai Mara University</header>
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="about us.html">About Us</a>
+        <a href="departments.html">Departments</a>
+        <a href="services.html">Services</a>
+        <a href="contact us.html">Contact Us</a>
+        <a href="#" id="authLink">Login</a>
+    </nav>
+
+    <div class="container">
+        <div class="section">
+            <h2>Departments</h2>
+            <ol>
+                <li><strong>School of Arts, Humanities, Social Sciences and Creative Industries</strong><br>
+                    Focuses on literature, history, philosophy, sociology, political science, communication, and creative arts. Enhances critical thinking and prepares students for media, public administration, and education careers.
+                </li>
+                <li><strong>School of Natural Resources, Environmental Studies and Agriculture</strong><br>
+                    Covers sustainable resource management, conservation, environmental science, and agriculture. Offers research and training in agribusiness, forestry, and climate change adaptation.
+                </li>
+                <li><strong>School of Business and Economics</strong><br>
+                    Specializes in business management, finance, marketing, and entrepreneurship. Focuses on economic principles, financial planning, and strategic business operations.
+                </li>
+                <li><strong>School of Education</strong><br>
+                    Trains future educators in curriculum development, psychology, and special education. Produces graduates contributing to national and international education systems.
+                </li>
+                <li><strong>School of Pure and Applied Sciences</strong><br>
+                    Includes mathematics, physics, chemistry, and biological sciences. Engages in scientific research and innovation, preparing students for careers in medicine, engineering, and technology.
+                </li>
+                <li><strong>School of Tourism and Hospitality</strong><br>
+                    Provides training in tourism management, hotel administration, event planning, and customer service. Focuses on hospitality skills and sustainable tourism.
+                </li>
+                <li><strong>School of Health Sciences</strong><br>
+                    Offers nursing, medical laboratory science, public health, and clinical medicine programs. Prepares students for healthcare and medical research professions.
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Check if the user is logged in
+        const user = JSON.parse(localStorage.getItem('user'));
+        const authLink = document.getElementById('authLink');
+
+        if (user) {
+            authLink.textContent = 'Logout';
+            authLink.href = '#'; // Prevent default link behavior
+            authLink.onclick = () => {
+                localStorage.removeItem('user'); // Logout
+                window.location.href = 'index.html'; // Redirect to login page
+            };
+        } else {
+            authLink.textContent = 'Login';
+            authLink.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

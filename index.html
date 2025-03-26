@@ -1,0 +1,88 @@
+S<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Maasai Mara University</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+</head>
+<body>
+  <div class="container">
+      <!-- Registration Form -->
+      <div id="registerForm">
+          <h2>Create Account</h2>
+          <input type="email" id="regEmail" placeholder="Email" required>
+          <input type="password" id="regPassword" placeholder="Password" required>
+          <button onclick="register()">Register</button>
+          <p class="message" id="regMessage"></p>
+          <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+      </div>
+
+      <!-- Login Form -->
+      <div id="loginForm" style="display: none;">
+          <h2>Login</h2>
+          <input type="email" id="loginEmail" placeholder="Email" required>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <button onclick="login()">Login</button>
+          <p class="message" id="loginMessage"></p>
+          <p>Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+      </div>
+  </div>
+
+  <script>
+      // Simulated database to store users
+      let users = JSON.parse(localStorage.getItem('users')) || [];
+
+      // Function to show the registration form
+      function showRegister() {
+          document.getElementById('registerForm').style.display = 'block';
+          document.getElementById('loginForm').style.display = 'none';
+      }
+
+      // Function to show the login form
+      function showLogin() {
+          document.getElementById('registerForm').style.display = 'none';
+          document.getElementById('loginForm').style.display = 'block';
+      }
+
+      // Function to register a new user
+      function register() {
+          const email = document.getElementById('regEmail').value;
+          const password = document.getElementById('regPassword').value;
+
+          // Check if email already exists
+          if (users.some(user => user.email === email)) {
+              document.getElementById('regMessage').textContent = 'Email already exists. Please use a different email.';
+              return;
+          }
+
+          // Add user to the database
+          users.push({ email, password });
+          localStorage.setItem('users', JSON.stringify(users));
+          document.getElementById('regMessage').textContent = 'Registration successful! Please login.';
+          showLogin();
+      }
+
+      // Function to login
+      function login() {
+          const email = document.getElementById('loginEmail').value;
+          const password = document.getElementById('loginPassword').value;
+
+          // Check if user exists and password matches
+          const user = users.find(user => user.email === email && user.password === password);
+          if (user) {
+              localStorage.setItem('user', JSON.stringify(user)); // Store logged-in user
+              document.getElementById('loginMessage').textContent = 'Login successful! Redirecting...';
+              // Redirect to the homepage
+              setTimeout(() => {
+                  window.location.href = 'homepage.html';
+              }, 1000);
+          } else {
+              document.getElementById('loginMessage').textContent = 'Invalid email or password.';
+          }
+      }
+  </script>
+</body>
+</html>

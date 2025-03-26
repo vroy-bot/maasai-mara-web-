@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Maasai Mara University</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>Maasai Mara University</header>
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="about us.html">About Us</a>
+        <a href="departments.html">Departments</a>
+        <a href="services.html">Services</a>
+        <a href="contact us.html">Contact Us</a>
+        <a href="#" id="authLink">Login</a>
+    </nav>
+
+    <div class="container">
+        <div class="section">
+            <h2>Welcome to Maasai Mara University</h2>
+            <p>A world-class university for the advancement of humanity.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Academic Programs</h2>
+            <p>Explore our wide range of undergraduate and postgraduate programs.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Student Campus Life</h2>
+            <p>Your academic success is important, but campus life is about fun and exploration too!</p>
+        </div>
+        
+        <div class="section">
+            <h2>Latest News & Events</h2>
+            <p>Stay updated with the latest highlights, notices, and conferences.</p>
+        </div>
+    </div>
+
+    <script>
+        // Check if the user is logged in
+        const user = JSON.parse(localStorage.getItem('user'));
+        const authLink = document.getElementById('authLink');
+
+        if (user) {
+            authLink.textContent = 'Logout';
+            authLink.href = '#'; // Prevent default link behavior
+            authLink.onclick = () => {
+                localStorage.removeItem('user'); // Logout
+                window.location.href = 'index.html'; // Redirect to login page
+            };
+        } else {
+            authLink.textContent = 'Login';
+            authLink.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

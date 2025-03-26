@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Maasai Mara University</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>About Us - Maasai Mara University</header>
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="about us.html">About Us</a>
+        <a href="departments.html">Departments</a>
+        <a href="services.html">Services</a>
+        <a href="contact us.html">Contact Us</a>
+        <a href="#" id="authLink">Login</a>
+    </nav>
+
+    <div class="container">
+        <div class="section">
+            <h2>Welcome to Maasai Mara University</h2>
+            <p>
+                Maasai Mara University is a public university that is the only university in Narok County, situated 150km in the South West of Nairobi en route to the great Maasai Mara Game Reserve in Kenya.
+                The university provides high-class quality education for all; focusing on innovative teaching based on research, with global collaborations with industries and other institutes.
+                The University has specialized in the following disciplines: Business, computing, ICT, education, psychology, tourism, environmental sciences, and health sciences and research. So get to know about the university and its programs through our website and all our social media links.
+                The core purpose of a university is learning, and at its best, a university is a community of learners. To learn is to be changed and the deeper and more profound the learning, the more significant the change. Our website will, we hope, give you a flavor of what makes our university special, in terms of our Academic expertise.
+                We have a wide range of academic programmes spread across the Schools of Education, Pure And Applied Sciences, Health Sciences, Business & Economics, Arts, Humanities, Social Sciences and Creative Industries, School of Natural Resources, Environmental Studies and Agriculture and School of Tourism and Hospitality.
+                The 21st century will see changes that innovation brings, which will have a major effect on the way people work and the kinds of jobs they do. In a world where change is the norm, however, one thing is certain – knowledge will be a key resource and will be highly sought.
+            </p>
+        </div>
+        <div class="section">
+            <h3>Our Academic Disciplines</h3>
+            <p>We specialize in the following fields:</p>
+            <ul>
+                <li>Business and Economics</li>
+                <li>Pure And Applied Sciences</li>
+                <li>Education and Psychology</li>
+                <li>Tourism and Hospitality</li>
+                <li>Environmental Sciences</li>
+                <li>Health Sciences</li>
+            </ul>
+            <p>Our programs are designed to equip students with practical and theoretical knowledge to excel in their careers.</p>
+        </div>
+        <div class="section">
+            <h3>Our Vision</h3>
+            <p>To provide quality university education through innovative teaching, research, and consultancy services for sustainable development.</p>
+        </div>
+        <div class="cta">
+            <a href="contact us.html">Contact Us</a>
+        </div>
+    </div>
+
+    <script>
+        // Check if the user is logged in
+        const user = JSON.parse(localStorage.getItem('user'));
+        const authLink = document.getElementById('authLink');
+
+        if (user) {
+            authLink.textContent = 'Logout';
+            authLink.href = '#'; // Prevent default link behavior
+            authLink.onclick = () => {
+                localStorage.removeItem('user'); // Logout
+                window.location.href = 'index.html'; // Redirect to login page
+            };
+        } else {
+            authLink.textContent = 'Login';
+            authLink.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
